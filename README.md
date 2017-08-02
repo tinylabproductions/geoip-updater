@@ -1,7 +1,14 @@
 ## geoip-updater
 
-A quick and easy way to launch akka-http based http server daemon.
+Small utility that downloads and keeps GeoIP database from MaxMind up to date.
 
-### Get binaries from
+### Usage
 
-https://bintray.com/tinylabproductions/akka-http-daemon/akka-http-daemon
+Add to your build.sbt:
+
+```
+resolvers += Resolver.bintrayRepo("tinylabproductions", "maven")
+libraryDependencies += "com.tinylabproductions" %% "geoip-updater" % "1.0.5"
+```
+
+You might want to check out [bintray repository](https://bintray.com/tinylabproductions/maven/geoip-updater) as well.

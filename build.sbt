@@ -1,5 +1,5 @@
-name := "akka-http-daemon"
-version := "1.2.0"
+name := "geoip-updater"
+version := "1.0.5"
 
 organization := "com.tinylabproductions"
 scalaVersion := "2.12.3"
@@ -62,22 +62,13 @@ scalacOptions in (Compile, console) ~= (_.filterNot(Set(
 fork in run := true
 
 libraryDependencies ++= Seq(
-  // nameOf macro
-  // https://github.com/dwickern/scala-nameof
-  "com.github.dwickern" %% "scala-nameof" % "1.0.3" % "provided",
-
-  // Testing
-  "org.specs2" %% "specs2-core" % "3.8.6" % "test",
-
+  // Geocoding
+  "com.maxmind.geoip2" % "geoip2" % "2.8.0",
   "com.typesafe.akka" %% "akka-http" % "10.0.3",
+  "commons-io" % "commons-io" % "2.4",
   "com.typesafe.scala-logging" %% "scala-logging" % "3.5.0"
-)
-// Needed for specs2
-scalacOptions in Test ++= Seq("-Yrangepos")
-
-libraryDependencies ++= Vector(
 )
 
 bintrayOrganization := Some("tinylabproductions")
 bintrayOmitLicense := true
-bintrayRepository := "akka-http-daemon"
+bintrayRepository := "maven"
