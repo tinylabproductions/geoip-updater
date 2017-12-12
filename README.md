@@ -8,7 +8,7 @@ Add to your build.sbt:
 
 ```
 resolvers += Resolver.bintrayRepo("tinylabproductions", "maven")
-libraryDependencies += "com.tinylabproductions" %% "geoip-updater" % "1.0.5"
+libraryDependencies += "com.tinylabproductions" %% "geoip-updater" % "1.1.1"
 ```
 
 You might want to check out [bintray repository](https://bintray.com/tinylabproductions/maven/geoip-updater) as well.
