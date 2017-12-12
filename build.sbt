@@ -1,5 +1,5 @@
 name := "geoip-updater"
-version := "1.0.5"
+version := "1.1.1"
 
 organization := "com.tinylabproductions"
 scalaVersion := "2.12.3"

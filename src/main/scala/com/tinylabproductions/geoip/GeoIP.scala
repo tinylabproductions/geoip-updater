@@ -21,21 +21,17 @@ import scala.util.Try
   * Created by arturas on 2016-12-08.
   */
 class GeoIP(var db: DatabaseReader) {
-  def lookupCountry(
-    deviceCountry: Option[CountryCode], clientIp: Option[InetAddress]
-  ): Option[CountryCode] = {
-    deviceCountry orElse clientIp.flatMap { ip =>
-      try {
-        // Love Java and nulls
-        for {
-          r <- Option(db.country(ip))
-          r <- Option(r.getCountry)
-          r <- Option(r.getIsoCode)
-          r <- CountryCode.validate(r.toLowerCase).right.toOption
-        } yield r
-      }
-      catch { case _: AddressNotFoundException => None }
+  def lookupCountry(clientIp: InetAddress): Option[CountryCode] = {
+    try {
+      // Love Java and nulls
+      for {
+        r <- Option(db.country(clientIp))
+        r <- Option(r.getCountry)
+        r <- Option(r.getIsoCode)
+        r <- CountryCode.validate(r.toLowerCase).right.toOption
+      } yield r
     }
+    catch { case _: AddressNotFoundException => None }
   }
 }
 
